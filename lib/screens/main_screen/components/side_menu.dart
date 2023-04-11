@@ -1,3 +1,4 @@
+import 'package:portfolio_website/functions/launch_url.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -9,11 +10,16 @@ import 'knowledges.dart';
 import 'my_info.dart';
 import 'skill_area.dart';
 
-class SideMenu extends StatelessWidget {
+class SideMenu extends StatefulWidget {
   const SideMenu({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<SideMenu> createState() => _SideMenuState();
+}
+
+class _SideMenuState extends State<SideMenu> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -51,7 +57,13 @@ class SideMenu extends StatelessWidget {
                       padding: const EdgeInsets.all(
                           GlobalVariables.defaultPadding / 2),
                       child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            launchURL(
+                                "https://drive.google.com/file/d/1-gk9YyrEIjonwMA0bWsXkSXAuWEq5pI4/view");
+                            // setState(() {
+
+                            // });
+                          },
                           child: Container(
                             color: GlobalVariables.secondaryColor,
                             child: FittedBox(
@@ -80,15 +92,22 @@ class SideMenu extends StatelessWidget {
                         children: [
                           const Spacer(),
                           IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                launchURL(
+                                    "https://twitter.com/Psychod49592076");
+                              },
                               icon: SvgPicture.asset(
                                   GlobalVariables.twitterIcon)),
                           IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                launchURL('https://github.com/Afil612167');
+                              },
                               icon:
                                   SvgPicture.asset(GlobalVariables.githubIcon)),
                           IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                launchURL('https://www.linkedin.com/in/afil-4a6938258/?original_referer=');
+                              },
                               icon:
                                   SvgPicture.asset(GlobalVariables.linkedIcon)),
                           const Spacer(),

@@ -1,6 +1,6 @@
-
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio_website/responsive.dart';
 
 import '../../../constants/global_variable.dart';
 
@@ -15,14 +15,14 @@ class MyAnimatedText extends StatelessWidget {
       style: Theme.of(context).textTheme.subtitle1!,
       child: Row(
         children: [
-          FlutterText(),
+          if (Responsive.isDesktop(context)) FlutterText(),
           Text("I build "),
           AnimatedTextKit(animatedTexts: [
             TyperAnimatedText("Responsive mobile and web app"),
             TyperAnimatedText("E-commerce App Ui"),
             TyperAnimatedText("Quiz app"),
           ]),
-          FlutterText()
+          if (Responsive.isDesktop(context)) FlutterText(),
         ],
       ),
     );

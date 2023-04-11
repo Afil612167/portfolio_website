@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/constants/global_variable.dart';
+import 'package:portfolio_website/responsive.dart';
 
 import 'my_animated_text.dart';
 class HomeBanner extends StatelessWidget {
@@ -11,7 +12,7 @@ class HomeBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 3,
+      aspectRatio: Responsive.isMobile(context)?2:3,
       child: Stack(
         fit: StackFit.expand,
         children: [
@@ -32,7 +33,10 @@ class HomeBanner extends StatelessWidget {
               children: [
                 Text(
                   "Discover my Amazing \nArt Space",
-                  style: Theme.of(context).textTheme.headline3!.copyWith(
+                  style:Responsive.isDesktop(context)?
+                   Theme.of(context).textTheme.headline3!.copyWith(
+                      color: Colors.white, fontWeight: FontWeight.w600):
+                   Theme.of(context).textTheme.headline5!.copyWith(
                       color: Colors.white, fontWeight: FontWeight.w600),
                 ),
                 MyAnimatedText(),
